@@ -1,9 +1,21 @@
 export class Operator {
   constructor(type = "") {
     this.id = Operator._id();
-    this.type = type;
+    this._type = type;
     this.order = Operator.ORDERS[type];
-    this.component = "operator";
+  }
+
+  static isOperator(object) {
+    return object.__proto__.constructor === Operator;
+  }
+
+  get type() {
+    return this._type;
+  }
+
+  set type(val) {
+    this._type = val;
+    this.order = Operator.ORDERS[val];
   }
 }
 
@@ -25,4 +37,3 @@ const ORDERS = {
 Operator.TYPES = Object.values(OPERATORS);
 Operator.OPERATORS = OPERATORS;
 Operator.ORDERS = ORDERS;
-Operator.getHigherOrder = () => Math.min(Object.values(Operator.Orders));
