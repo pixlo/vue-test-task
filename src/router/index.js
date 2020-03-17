@@ -19,6 +19,13 @@ const routes = [
     component: function() {
       return import(/* webpackChunkName: "calc" */ "../views/Calc.vue");
     }
+  },
+  {
+    path: "/comments",
+    name: "Comments",
+    component: function() {
+      return import(/* webpackChunkName: "Comments" */ "../views/Comments.vue");
+    }
   }
 ];
 
