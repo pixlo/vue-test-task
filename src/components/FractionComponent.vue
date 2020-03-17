@@ -1,5 +1,5 @@
 <template functional>
-  <div style="max-width: 200px;">
+  <div class="fractionComponent">
     <div>
       <input
         :readonly="props.readonly"
@@ -47,8 +47,11 @@ export default {
 </script>
 
 <style scoped>
-input {
-  line-height: 1.5em;
+.fractionComponent {
   width: 5em;
+  line-height: 1.5;
+}
+input {
+  width: 100%;
 }
 </style>
