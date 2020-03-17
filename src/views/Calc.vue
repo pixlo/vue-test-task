@@ -25,9 +25,7 @@
         </div>
       </div>
     </div>
-    <div style="text-align: left">
-      <a href="#" @click="addFraction">ADD FRACTION</a>
-    </div>
+    <button @click="addFraction">ADD FRACTION</button>
   </div>
 </template>
 
@@ -196,6 +194,7 @@ export default {
     },
     onFractionInput(fraction, field, event) {
       this.$set(fraction, field, event.target.value);
+      fraction.checkErrors();
     },
     onOperatorInput(operator, event) {
       this.$set(operator, "type", event.target.value);

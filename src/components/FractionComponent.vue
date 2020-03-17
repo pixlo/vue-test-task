@@ -1,5 +1,5 @@
 <template functional>
-  <div>
+  <div style="max-width: 200px;">
     <div>
       <input
         :readonly="props.readonly"
@@ -26,6 +26,15 @@
         }"
         :value="props.fraction.denominator"
       />
+    </div>
+    <div>
+      <div
+        v-for="error in props.fraction.errors"
+        :key="error"
+        style="color: red; font-size: 0.5em"
+      >
+        {{ error }}
+      </div>
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <input type="text" v-model="comment" />
-    <button @click="addComment">Add comment</button>
+    <input type="text" v-model="comment" @keypress.enter="addComment" />
+    <button @click="addComment">Добавить комментарий</button>
     <ul>
       <li v-for="comment in comments" :key="comment.id">
         <span>{{ comment.text }}</span>
