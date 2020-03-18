@@ -121,62 +121,62 @@ export default {
       }
     },
     add(first, second) {
-      if (first.denominator === second.denominator) {
+      if (first.numericDenominator === second.numericDenominator) {
         return new Fraction(
-          first.numerator + second.numerator,
-          first.denominator
+          first.numericNumerator + second.numericNumerator,
+          first.numericDenominator
         );
       } else {
         const _first = new Fraction(
-          first.numerator * second.denominator,
-          first.denominator * second.denominator
+          first.numericNumerator * second.numericDenominator,
+          first.numericDenominator * second.numericDenominator
         );
         const _second = new Fraction(
-          second.numerator * first.denominator,
-          second.denominator * first.denominator
+          second.numericNumerator * first.numericDenominator,
+          second.numericDenominator * first.numericDenominator
         );
         return new Fraction(
-          _first.numerator + _second.numerator,
-          _first.denominator
+          _first.numericNumerator + _second.numericNumerator,
+          _first.numericDenominator
         );
       }
     },
     subtract(first, second) {
-      if (first.denominator === second.denominator) {
+      if (first.numericDenominator === second.numericDenominator) {
         return new Fraction(
-          first.numerator - second.numerator,
-          first.denominator
+          first.numericNumerator - second.numericNumerator,
+          first.numericDenominator
         );
       } else {
         const _first = new Fraction(
-          first.numerator * second.denominator,
-          first.denominator * second.denominator
+          first.numericNumerator * second.numericDenominator,
+          first.numericDenominator * second.numericDenominator
         );
         const _second = new Fraction(
-          second.numerator * first.denominator,
-          second.denominator * first.denominator
+          second.numericNumerator * first.numericDenominator,
+          second.numericDenominator * first.numericDenominator
         );
         return new Fraction(
-          _first.numerator - _second.numerator,
-          _first.denominator
+          _first.numericNumerator - _second.numericNumerator,
+          _first.numericDenominator
         );
       }
     },
     divide(first, second) {
       return new Fraction(
-        first.numerator * second.denominator,
-        first.denominator * second.numerator
+        first.numericNumerator * second.numericDenominator,
+        first.numericDenominator * second.numericNumerator
       );
     },
     multiply(first, second) {
       return new Fraction(
-        first.numerator * second.numerator,
-        first.denominator * second.denominator
+        first.numericNumerator * second.numericNumerator,
+        first.numericDenominator * second.numericDenominator
       );
     },
     gcd(fraction) {
-      let a = fraction.numerator;
-      let b = fraction.denominator;
+      let a = fraction.numericNumerator;
+      let b = fraction.numericDenominator;
       a = Math.abs(a);
       b = Math.abs(b);
       if (b > a) {
