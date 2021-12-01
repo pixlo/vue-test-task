@@ -44,7 +44,7 @@ export default {
         }
       ],
       comment: "",
-      socketMessenger: new SocketMessenger("wss://echo.websocket.org")
+      socketMessenger: new SocketMessenger("wss://ws.ifelse.io")
     };
   },
   mounted() {
