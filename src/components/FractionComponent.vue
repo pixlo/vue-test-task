@@ -1,35 +1,25 @@
-<template functional>
+<template>
   <div class="fractionComponent">
     <div>
       <input
-        :readonly="props.readonly"
+        :readonly="$props.readonly"
         type="number"
-        v-on="{
-          ...listeners,
-          input: listeners.input
-            ? listeners.input.bind(this, props.fraction, 'numerator')
-            : () => {}
-        }"
-        :value="props.fraction.numerator"
+        v-on:input="onInput($event, 'numerator')"
+        :value="$props.fraction.numerator"
       />
     </div>
     <hr />
     <div>
       <input
-        :readonly="props.readonly"
+        :readonly="$props.readonly"
         type="number"
-        v-on="{
-          ...listeners,
-          input: listeners.input
-            ? listeners.input.bind(this, props.fraction, 'denominator')
-            : () => {}
-        }"
-        :value="props.fraction.denominator"
+        v-on:input="onInput($event, 'denominator')"
+        :value="$props.fraction.denominator"
       />
     </div>
     <div>
       <div
-        v-for="error in props.fraction.errors"
+        v-for="error in $props.fraction.errors"
         :key="error"
         style="color: red; font-size: 0.5em"
       >
@@ -42,7 +32,17 @@
 <script>
 export default {
   name: "FractionComponent",
-  functional: true
+  props: ["fraction", "readonly"],
+  emits: ["input"],
+  methods: {
+    onInput(e, field) {
+      this.$emit("input", {
+        event: e,
+        fraction: this.fraction,
+        field: field
+      });
+    }
+  }
 };
 </script>
 
@@ -51,6 +51,7 @@ export default {
   width: 5em;
   line-height: 1.5;
 }
+
 input {
   width: 100%;
 }

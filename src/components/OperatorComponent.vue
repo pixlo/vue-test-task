@@ -1,13 +1,14 @@
-<template functional>
+<template>
   <div>
-    <select v-on="listeners" :value="props.operator.type">
+    <select v-bind="$attrs" :value="$props.operator.type">
       <option value="">Chose an operator</option>
       <option
         :value="operator"
-        v-for="operator in props.operatorTypes"
+        v-for="operator in $props.operatorTypes"
         :key="operator"
-        >{{ operator }}</option
       >
+        {{ operator }}
+      </option>
     </select>
   </div>
 </template>
@@ -15,7 +16,7 @@
 <script>
 export default {
   name: "OperatorComponent",
-  functional: true
+  props: ["operator", "operatorTypes"]
 };
 </script>
 

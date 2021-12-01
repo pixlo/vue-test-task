@@ -192,12 +192,12 @@ export default {
         b %= a;
       }
     },
-    onFractionInput(fraction, field, event) {
-      this.$set(fraction, field, event.target.value);
+    onFractionInput({ fraction, field, event }) {
+      fraction[field] = event.target.value;
       fraction.checkErrors();
     },
     onOperatorInput(operator, event) {
-      this.$set(operator, "type", event.target.value);
+      operator.type = event.target.value;
     }
   }
 };
